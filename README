@@ -1,3 +1,70 @@
 = Super Export
 
-Description goes here
+* http://github.com/ihoka/radiant-super-export-extension/wikis
+
+== DESCRIPTION:
+
+Import/export extension for Radiant.
+
+All records in the database are exported to individual YAML files, making it easy to manage them with a source control tool like Git or Subversion.
+
+== FEATURES:
+
+Default import/export path is in db/export where a directory is created for each model. Individual YAML files are saved with the record ID as their filename.
+
+== INSTALL:
+
+In your radiant project do:
+
+  cd vendor/extensions
+  git clone git://github.com/ihoka/radiant-super-export-extension.git super_export
+  rm -rf super_export/.git
+  cd ../../
+
+
+== USAGE:
+
+To export, use:
+  
+  $ rake db:export
+  
+
+To import, use:
+
+  $ rake db:import
+
+
+For example, exporting the Page model looks like this:
+
+  db/
+    export/
+      pages/
+        1.yml
+        2.yml
+        3.yml
+        ...
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2008 Istvan Hoka
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
