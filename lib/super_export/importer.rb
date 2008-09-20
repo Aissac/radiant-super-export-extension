@@ -12,11 +12,12 @@ module SuperExport
     
     def initialize(model)
       @model = model
+      @model.record_timestamps = false
     end
     
     def import
       files = Dir["#{model_export_root}/*.yml"]
-      puts "Importing #{model} (#{files.size} found)"
+      logger.info "Importing #{model} (#{files.size} found)"
       
       files.each do |file|
         record = YAML.load_file(file)
@@ -28,14 +29,13 @@ module SuperExport
     end
     
     def capture_user(record, &block)
-      if record.is_a?(User)
-        password = record.password
-        salt = record.salt
+      if User === record
+        password, salt = record.password, record.salt
+        yield
+        User.update_all({:password => password, :salt => salt}, ['id = ?', record])
+      else
+        yield
       end
-      
-      yield
-      
-      User.update_all({:password => password, :salt => salt}, ['id = ?', record]) if record.is_a?(User)
     end
   end
 end

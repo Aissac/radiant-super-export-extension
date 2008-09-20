@@ -10,6 +10,10 @@ module SuperExport
   end
   
   module SharedMethods
+    def logger
+      RAILS_DEFAULT_LOGGER
+    end
+    
     def model_export_root
       File.join(EXPORT_ROOT, model.table_name)
     end
