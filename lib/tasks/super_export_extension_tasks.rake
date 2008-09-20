@@ -1,11 +1,26 @@
 namespace :db do
-  desc "Export models to db/export/[table_name]/*.yml"
-  task :export => ["db:schema:dump"] do
-    SuperExport::Exporter.export
+  desc "Export models"
+  task :export do
+    require 'highline/import'
+    if ENV['OVERWRITE'].to_s.downcase == 'true' or agree("This task will erase previous exports and schema.rb. Are you sure you want to \ncontinue? [yn] ")
+      Rake::Task["db:schema:dump"].invoke
+      SuperExport::Exporter.export
+    else
+      say "Task cancelled."
+      exit
+    end
+    
   end
   
-  desc "Import models from db/export/[table_name]/*.yml"
-  task :import => ["db:schema:load"] do
-    SuperExport::Importer.import
+  desc "Import models"
+  task :import do
+    require 'highline/import'
+    if ENV['OVERWRITE'].to_s.downcase == 'true' or agree("This task will overwrite any data in the database. Are you sure you want to \ncontinue? [yn] ")
+      Rake::Task["db:schema:load"].invoke
+      SuperExport::Importer.import
+    else
+      say "Task cancelled."
+      exit
+    end
   end
 end

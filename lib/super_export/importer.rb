@@ -17,7 +17,7 @@ module SuperExport
     
     def import
       files = Dir["#{model_export_root}/*.yml"]
-      logger.info "Importing #{model} (#{files.size} found)"
+      puts "Importing #{model} (#{files.size} found)"
       
       files.each do |file|
         record = YAML.load_file(file)

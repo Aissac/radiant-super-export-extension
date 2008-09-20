@@ -15,7 +15,7 @@ module SuperExport
     end
   
     def export
-      logger.info "Exporting #{model} (#{model.count(:all)} records)"
+      puts "Exporting #{model} (#{model.count(:all)} records)"
       
       FileUtils.makedirs(model_export_root) unless File.directory?(model_export_root)
       FileUtils.rm(Dir["#{model_export_root}/*.yml"])
