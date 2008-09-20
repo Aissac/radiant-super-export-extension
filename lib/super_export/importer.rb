@@ -3,7 +3,8 @@ module SuperExport
     include SharedMethods
     
     def self.import
-      SuperExport.models.each do |model|
+      models = [User] + (SuperExport.models - [User])
+      models.each do |model|
         Importer.new(model).import
       end
     end
@@ -21,9 +22,19 @@ module SuperExport
       
       files.each do |file|
         record = YAML.load_file(file)
+        
+        created_by_id = record.respond_to?(:created_by) && record.created_by_id
+        updated_by_id = record.respond_to?(:updated_by) && record.updated_by_id
+        
         capture_user(record) do
           record.instance_variable_set(:@new_record, true)
           record.save(false)
+          if created_by_id || updated_by_id
+            updates = {}
+            updates[:created_by_id] = created_by_id if created_by_id
+            updates[:updated_by_id] = updated_by_id if updated_by_id
+            model.update_all(updates, ['id = ?', record.id])
+          end
         end
       end
     end
