@@ -1,6 +1,6 @@
 namespace :db do
   desc "Export models"
-  task :export do
+  task :super_export do
     require 'highline/import'
     if ENV['OVERWRITE'].to_s.downcase == 'true' or agree("This task will erase previous exports and schema.rb. Are you sure you want to \ncontinue? [yn] ")
       Rake::Task["db:schema:dump"].invoke
@@ -13,7 +13,7 @@ namespace :db do
   end
   
   desc "Import models"
-  task :import do
+  task :super_import do
     require 'highline/import'
     if ENV['OVERWRITE'].to_s.downcase == 'true' or agree("This task will overwrite any data in the database. Are you sure you want to \ncontinue? [yn] ")
       Rake::Task["db:schema:load"].invoke

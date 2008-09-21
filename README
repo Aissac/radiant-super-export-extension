@@ -26,12 +26,12 @@ In your radiant project do:
 
 To export, use:
   
-  $ rake db:export
+  $ rake db:super_export
   
 
 To import, use:
 
-  $ rake db:import
+  $ rake db:super_import
 
 
 For example, exporting the Page model looks like this:
