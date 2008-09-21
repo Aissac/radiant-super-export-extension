@@ -23,8 +23,8 @@ module SuperExport
       files.each do |file|
         record = YAML.load_file(file)
         
-        created_by_id = record.respond_to?(:created_by) && record.created_by_id
-        updated_by_id = record.respond_to?(:updated_by) && record.updated_by_id
+        created_by_id = record.respond_to?(:created_by_id) && record.created_by_id
+        updated_by_id = record.respond_to?(:updated_by_id) && record.updated_by_id
         
         capture_user(record) do
           record.instance_variable_set(:@new_record, true)
