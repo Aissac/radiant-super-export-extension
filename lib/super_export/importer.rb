@@ -25,14 +25,16 @@ module SuperExport
         
         created_by_id = record.respond_to?(:created_by_id) && record.created_by_id
         updated_by_id = record.respond_to?(:updated_by_id) && record.updated_by_id
+        position = record.respond_to?(:position) && record.position
         
         capture_user(record) do
           record.instance_variable_set(:@new_record, true)
           record.save(false)
-          if created_by_id || updated_by_id
+          if created_by_id || updated_by_id || position
             updates = {}
             updates[:created_by_id] = created_by_id if created_by_id
             updates[:updated_by_id] = updated_by_id if updated_by_id
+            updates[:position] = position if position
             model.update_all(updates, ['id = ?', record.id])
           end
         end
