@@ -1,6 +1,6 @@
 = Super Export
 
-* http://github.com/ihoka/radiant-super-export-extension/wikis
+* http://github.com/Aissac/radiant-super-export-extension/wikis
 
 == DESCRIPTION:
 
@@ -17,7 +17,7 @@ Default import/export path is in db/export where a directory is created for each
 In your radiant project do:
 
   cd vendor/extensions
-  git clone git://github.com/ihoka/radiant-super-export-extension.git super_export
+  git clone git://github.com/Aissac/radiant-super-export-extension.git super_export
   rm -rf super_export/.git
   cd ../../
 
