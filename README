@@ -44,6 +44,11 @@ For example, exporting the Page model looks like this:
         3.yml
         ...
 
+To run the export/import task in production mode, use:
+
+  $ rake db:super_export RAILS_ENV="production"
+  $ rake db:super_import RAILS_ENV="production"
+
 == LICENSE:
 
 (The MIT License)
