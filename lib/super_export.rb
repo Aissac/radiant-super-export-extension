@@ -1,3 +1,9 @@
+unless defined?(Radiant::ExtensionMeta)
+  class Radiant::ExtensionMeta < ActiveRecord::Base
+    set_table_name 'extension_meta'
+  end
+end
+
 module SuperExport
   EXPORT_ROOT = "#{RAILS_ROOT}/db/export"
   
