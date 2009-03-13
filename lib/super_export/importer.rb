@@ -4,6 +4,7 @@ module SuperExport
     
     def self.import
       models = [User] + (SuperExport.models - [User])
+      SchemaMigration.delete_all
       models.each do |model|
         Importer.new(model).import
       end

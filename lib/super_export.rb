@@ -4,6 +4,14 @@ unless defined?(Radiant::ExtensionMeta)
   end
 end
 
+unless defined?(SchemaMigration)
+  class SchemaMigration < ActiveRecord::Base
+    def id
+      version.underscore.gsub(/[^1-9a-z_]/, '_')
+    end
+  end
+end
+
 module SuperExport
   EXPORT_ROOT = "#{RAILS_ROOT}/db/export"
   
