@@ -50,4 +50,4 @@ TODO
 
 [ai]: http://www.aissac.ro/
 [rd]: http://radiantcms.org/
-[rse]: http://github.com/Aissac/radiant-super-export-extension/tree/master
+[rse]: http://blog.aissac.ro/radiant/super-export-extension/
