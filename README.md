@@ -45,8 +45,8 @@ Exporting the Page model looks like this:
 Contributors
 ---
 
-TODO
----
+* Istvan Hoka
+* Cristi Duma
 
 [ai]: http://www.aissac.ro/
 [rd]: http://radiantcms.org/
