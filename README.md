@@ -6,7 +6,7 @@ About
 
 An extension by [Aissac][ai] that provides portability to your [Radiant CMS][rd] project by allowing you to export and import the records in the database and making it easy to manage them with a source control tool like Git or Subversion.
 
-Tested on Radiant 0.7.1 and 0.8.
+Tested on Radiant 0.7.1, 0.8 and 0.9 RC1.
 
 Features
 ---
