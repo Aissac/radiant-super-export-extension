@@ -19,7 +19,7 @@ Installation
 
 The [Super Export Extension][rse] has no dependencies, so all you have to do is install it:
   
-    git submodule add git://github.com/Aissac/radiant-super-export-extension.git vendor/extensions/super_export
+    git clone git://github.com/Aissac/radiant-super-export-extension.git vendor/extensions/super_export
 
 Usage
 ---
@@ -47,9 +47,11 @@ Exporting the Page model looks like this:
 Contributors
 ---
 
-* Istvan Hoka
-* Cristi Duma
+* Istvan Hoka ([@ihoka][ih])
+* Cristi Duma ([@cristi_duma][cd])
 
 [ai]: http://www.aissac.ro/
 [rd]: http://radiantcms.org/
 [rse]: http://blog.aissac.ro/radiant/super-export-extension/
+[cd]: http://twitter.com/cristi_duma
+[ih]: http://twitter.com/ihoka

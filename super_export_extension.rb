@@ -8,5 +8,4 @@ class SuperExportExtension < Radiant::Extension
   
   def deactivate
   end
-  
 end
